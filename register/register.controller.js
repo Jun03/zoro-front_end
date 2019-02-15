@@ -24,6 +24,7 @@
     //   return true;
   // }
             ////////////
+
             vm.dataLoading = true;
             UserService.Create(vm.user)
                 .then(function (response) {
