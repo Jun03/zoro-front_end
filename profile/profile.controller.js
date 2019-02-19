@@ -10,11 +10,11 @@
         var vm = this;
         console.log("profile");
         console.log(vm);
-        if (vm.password != vm.cPassword) {
+      /*  if (vm.password != vm.cPassword) {
             alert("Passwords do not match.");
             return false;
         }
-
+        */
 
       //  vm.profile = profile;
 

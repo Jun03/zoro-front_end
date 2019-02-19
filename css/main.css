@@ -3,6 +3,13 @@
   vertical-align:bottom !important;
 }
 
+.item-loc,.item-rat,.item-avail,.item-categ{
+  color: #828282;
+  font-size: 0.5em;
+  text-align: justify;
+  margin: 0 5px;
+}
+
 
 
 #element-container{
@@ -863,9 +870,13 @@ a:hover {
 }
 .shop-item img {
   max-width: 100%;
+  max-height: 100%;
 }
 .shop-item .image {
-  text-align: center;
+  text-align: center;max-width: 25vw;
+  max-height: 25vh;
+  height:25vh;
+  width: 25vw;
 }
 .shop-item .title {
   padding: 20px 0 10px;
@@ -877,7 +888,7 @@ a:hover {
 }
 .shop-item .title h3 a {
   color: #535b60;
-  text-transform: uppercase;
+
 }
 .shop-item .colors {
   text-align: center;

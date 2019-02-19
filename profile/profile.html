@@ -52,9 +52,10 @@
                 <div class="col-lg-8">
                   <div class="ui-select">
                     <select id="user_time_zone" class="form-control">
+                      <option value=""></option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
-                      <option value="other">Other</option>
+
                     </select>
                   </div>
                 </div>
@@ -67,24 +68,24 @@
               <input class="form-control" ng-model="vm.user.address" name="address" type="text-area" >
             </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-            <label class="col-md-3 control-label">Password:</label>
+          <div class="form-group" ng-class="{ 'has-error': form.pincode.$dirty && form.pincode.$error.required }">
+            <label class="col-md-3 control-label">Pincode:</label>
             <div class="col-md-8">
-              <input class="form-control" name="password" type="password" >
+              <input class="form-control" name="pincode" type="number" >
             </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': form.cpassword.$dirty && form.cpassword.$error.required }">
-            <label class="col-md-3 control-label">Confirm password:</label>
+          <div class="form-group" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
+            <label class="col-md-3 control-label">Phone:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" name ="cPassword" >
+              <input class="form-control" type="number" name ="phone" >
             </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+          <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
               <input type="button" class="btn btn-primary" ng-disabled="form.$invalid" value="Save Changes">
               <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
+              <input type="reset" class="btn btn-default" value="Reset">
             </div>
           </div>
         </form>
