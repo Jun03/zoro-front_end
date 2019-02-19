@@ -40,12 +40,25 @@ $("#text").on("click",function(){
 	if($("#text").text()=="Verify")
 	{
 		console.log("Verifed");
-//		$.getJSON("otp-verify-url", function(result)//{
+		 $('.email input').val('');
+	//$.getJSON("otp-verify-url", function(result){
+$http.post('otp-verify-url', user).then(function(){
+		window.location="index-1.html/register";
+}, function(){
+	alert("OTP didnn't match, Try again...")
+							}
+);
 
-		//--if verified
-			//window.location="index-1.html/register";
+	/*	console.log(result);
+		if(result.status=="success")
+		window.location="index-1.html/register";
+		else {
+			alert("OTP didn't match");
+			location.reload();
+
+		}*/
 	//	});
-	}
+}
 	else{
 
 	if($(".email").hasClass("success")){
@@ -55,15 +68,16 @@ $("#text").on("click",function(){
 //Here call the api with email->
 		$.getJSON("https://jsonplaceholder.typicode.com/todos/1", function(result){
 	//Add something like 		if(result.found){do this -> else dont do this} the below code is for when email is not found , if not found add something like window.location="index-1.html/login";
-
-			 console.log("data:");
+			console.log("data:");
 			 console.log(JSON.stringify(result));
-			console.log("SEnd otp now");
-	$("#display-text").text("Please Enter OTP to continue:");
 
+			console.log("Send otp now");
+	$("#display-text").text("Please Enter OTP to continue:");
+			var email_user = $('.email input').val();
+			console.log(email_user);
 			 $('.email input').val('');
 				$(".email").removeClass("success");
-				 $(".email-input").attr("placeholder","X1234X")
+				 $(".email-input").attr("placeholder","X1234X");
 		$("#text").text("Verify");
 				 $(".email-input").attr("type","text")
 

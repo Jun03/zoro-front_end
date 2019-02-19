@@ -16,14 +16,14 @@
             <label for="imageUpload"></label>
         </div>
         <div class="avatar-preview">
-            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+            <div id="imagePreview" style="background-image: url(../img/default-avatar.png);">
             </div>
         </div>
     </div>
 
 
       </div>
-      </div>
+
 
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
@@ -34,70 +34,55 @@
         </div>
       --><h3>Personal info</h3>
 
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
+        <form class="form-horizontal" role="form" name="form" ng-submit="vm.editProfile()">
+          <div class="form-group" ng-class="{ 'has-error': form.userName.$dirty && form.fname.$error.required }">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Jane">
+              <input class="form-control" name="fname" type="text" ng-model="vm.user.fname">
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{ 'has-error': form.lname.$dirty && form.lname.$error.required }">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="Bishop">
+              <input class="form-control" type="text" name="lname" ng-model="vm.user.email">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
+                <label class="col-lg-3 control-label">Gender:</label>
+                <div class="col-lg-8">
+                  <div class="ui-select">
+                    <select id="user_time_zone" class="form-control">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
+
+
+          <div class="form-group" ng-class="{ 'has-error': form.address.$dirty && form.address.$error.required }">
+            <label class="col-md-3 control-label">Address:</label>
             <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
+              <input class="form-control" ng-model="vm.user.address" name="address" type="text-area" >
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" name="password" type="password" >
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{ 'has-error': form.cpassword.$dirty && form.cpassword.$error.required }">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
+              <input class="form-control" type="password" name ="cPassword" >
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <input type="button" class="btn btn-primary" ng-disabled="form.$invalid" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancel">
             </div>

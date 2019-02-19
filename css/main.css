@@ -1,3 +1,10 @@
+.content-nav{
+  padding-top: 5px;
+  vertical-align:bottom !important;
+}
+
+
+
 #element-container{
 width: 80vw;
 padding : 0 0 0 0;
@@ -68,21 +75,26 @@ padding : 0 0 0 0;
 
 .sidenav {
     width: 15vw;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 20vh;
-    left: 2vw;
+    left: 1.5vw;
     background: #eee;
     overflow-x: hidden;
     padding: 2vh 0;
+    border-radius: 10%;
 }
 
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     color: #2196F3;
     display: block;
+}
+.sidenav h1{
+  padding: 6px 8px 6px 16px;
+font-size: 15px;
 }
 
 .main {
@@ -882,7 +894,7 @@ a:hover {
 }
 .shop-item .price {
   color: #535b60;
-  font-size: 1.5em;
+  font-size: 0.9em;
   text-align: center;
   margin-bottom: 20px;
   font-weight: 600;
@@ -895,12 +907,12 @@ a:hover {
 }
 .shop-item .price .price-was {
   color: #A7A7A7;
-  font-size: 0.8em;
+  font-size: 0.6em;
   text-decoration: line-through;
 }
 .shop-item .description {
   color: #828282;
-  font-size: 0.9em;
+  font-size: 0.5em;
   text-align: justify;
   margin: 0 10px;
 }
@@ -1422,7 +1434,7 @@ span.color-red {
   top: 5px;
   width: 24px;
   height: 24px;
-  background-image: url(../img/social-login.png);
+/*  background-image: url(../img/social-login.png);*/
   background-repeat: no-repeat;
 }
 .social-login .btn-facebook-login {
@@ -1835,7 +1847,7 @@ span.color-red {
   display: block;
   width: 115px;
   height: 40px;
-  background: url(../img/stay-connected.png);
+  background: url(../img/cool.png);
   -webkit-opacity: 0.5;
   -moz-opacity: 0.5;
   opacity: 0.5;

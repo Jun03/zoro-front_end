@@ -3,16 +3,18 @@
 
     angular
         .module('app')
-        .controller('profileController',profileController);
+        .controller('profileController', profileController);
 
     profileController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
     function profileController(UserService, $location, $rootScope, FlashService) {
-       var vm = this;
+        var vm = this;
         console.log("profile");
         console.log(vm);
-        console.log("uuuuu");
-    //  vm.editProfile=editProfile;
-  
+        if (vm.password != vm.cPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
 
       //  vm.profile = profile;
 
@@ -33,7 +35,7 @@
 
 
           //vm.dataLoading = true;
-            UserService.Update(vm.user)
+            UserService.Update(vm)
                 .then(function (response) {
                     if (response.found==false) {
                         FlashService.Success('Profile Updation successful', true);
@@ -46,8 +48,6 @@
                     }
                 });
         }
-*/
-
 
 
 

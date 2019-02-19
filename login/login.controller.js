@@ -8,7 +8,8 @@
     LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
     function LoginController($location, AuthenticationService, FlashService) {
         var vm = this;
-
+        //console.log("logiiiiiiiiiin");
+        console.log(vm);
         vm.login = login;
 
         (function initController() {
