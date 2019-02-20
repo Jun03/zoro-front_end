@@ -26,23 +26,29 @@ var regex = new RegExp(
         '|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$'
     );
 var regex_otp = new RegExp('[a-zA-Z0-9]{6}');
-
+var otp,email;
     $('.email input').on('keyup', function(e) {
 			if($("#text").text()=="Verify"){
+				 otp=$(this).val();
 	     $(this).parent().toggleClass('success', regex_otp.test($(this).val()));
 
 			}else{
 		 $(this).parent().toggleClass('success', regex.test($(this).val()));
+		 email=$(this).val();
 			}
 		});
 
 $("#text").on("click",function(){
 	if($("#text").text()=="Verify")
 	{
-		console.log("Verifed");
-		 $('.email input').val('');
-	//$.getJSON("otp-verify-url", function(result){
-$http.post('otp-verify-url', user).then(function(){
+		user ={
+			"email" : email,
+			"otp" : otp
+		}
+		console.log(user);
+		console.log("Verifed-");
+	//
+$.post('otp-verify-url', user).then(function(){
 		window.location="index-1.html/register";
 }, function(){
 	alert("OTP didnn't match, Try again...")
