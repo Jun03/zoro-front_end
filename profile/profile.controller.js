@@ -37,6 +37,7 @@
           //vm.dataLoading = true;
             UserService.Update(vm)
                 .then(function (response) {
+                  console.log("updating");
                     if (response.found==false) {
                         FlashService.Success('Profile Updation successful', true);
                         $location.path('/dashboard');

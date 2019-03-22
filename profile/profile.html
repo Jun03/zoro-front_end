@@ -35,23 +35,23 @@
       --><h3>Personal info</h3>
 
         <form class="form-horizontal" role="form" name="form" ng-submit="vm.editProfile()">
-          <div class="form-group" ng-class="{ 'has-error': form.userName.$dirty && form.fname.$error.required }">
+          <div class="form-group" ng-class="{ 'has-error': form.userName.$dirty && form.firstName.$error.required }">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">
-              <input class="form-control" name="fname" type="text" ng-model="vm.user.fname">
+              <input class="form-control" name="firstName" type="text" ng-model="vm.user.firstName">
             </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': form.lname.$dirty && form.lname.$error.required }">
+          <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
             <label class="col-lg-3 control-label">Last name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="lname" ng-model="vm.user.email">
+              <input class="form-control" type="text" name="lastName" ng-model="vm.user.lastName">
             </div>
           </div>
           <div class="form-group">
                 <label class="col-lg-3 control-label">Gender:</label>
                 <div class="col-lg-8">
                   <div class="ui-select">
-                    <select id="user_time_zone" class="form-control">
+                    <select id="user_time_zone" class="form-control" name="gender" ng-model="vm.user.gender">
                       <option value=""></option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
@@ -60,20 +60,28 @@
                   </div>
                 </div>
               </div>
+              <div class="form-group" ng-class="{ 'has-error': form.age.$dirty && form.age.$error.required }">
+                <label class="col-md-3 control-label">age:</label>
+                <div class="col-md-8">
+                  <input class="form-control" name="age" type="number" >
+                </div>
+              </div>
 
-
-          <div class="form-group" ng-class="{ 'has-error': form.address.$dirty && form.address.$error.required }">
-            <label class="col-md-3 control-label">Address:</label>
+          <div class="form-group" ng-class="{ 'has-error': form.city.$dirty && form.city.$error.required }">
+            <label class="col-md-3 control-label">City:</label>
             <div class="col-md-8">
-              <input class="form-control" ng-model="vm.user.address" name="address" type="text-area" >
+              <input class="form-control" ng-model="vm.user.city" name="city" type="text-area" >
             </div>
           </div>
-          <div class="form-group" ng-class="{ 'has-error': form.pincode.$dirty && form.pincode.$error.required }">
-            <label class="col-md-3 control-label">Pincode:</label>
+
+          <div class="form-group" ng-class="{ 'has-error': form.state.$dirty && form.state.$error.required }">
+            <label class="col-md-3 control-label">State:</label>
             <div class="col-md-8">
-              <input class="form-control" name="pincode" type="number" >
+              <input class="form-control" ng-model="vm.user.state" name="state" type="text-area" >
             </div>
           </div>
+
+
           <div class="form-group" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
             <label class="col-md-3 control-label">Phone:</label>
             <div class="col-md-8">
@@ -83,7 +91,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" ng-disabled="form.$invalid" value="Save Changes">
+              <input type="submit" class="btn btn-primary" ng-disabled="form.$invalid" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-default" value="Reset">
             </div>

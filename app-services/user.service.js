@@ -36,7 +36,7 @@
         }
 
         function Update(user) {
-              return $http.post('http://localhost:3000/tasks/', user).then(handleSuccess, handleError('Error Updating user'));
+              return $http.post('http://localhost:3000/posts/', user).then(handleSuccess, handleError('Error Updating user'));
         }
 
         function Delete(id) {

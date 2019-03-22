@@ -29,10 +29,10 @@ var regex_otp = new RegExp('[a-zA-Z0-9]{6}');
 var otp,email;
     $('.email input').on('keyup', function(e) {
 			if($("#text").text()=="Verify"){
-				 otp=$(this).val();
-	     $(this).parent().toggleClass('success', regex_otp.test($(this).val()));
 
-			}else{
+	     $(this).parent().toggleClass('success', regex_otp.test($(this).val()));
+			  otp=$(this).val();
+			}else if($("#text").text()=="SEND OTP"){
 		 $(this).parent().toggleClass('success', regex.test($(this).val()));
 		 email=$(this).val();
 			}
@@ -45,15 +45,28 @@ $("#text").on("click",function(){
 			"email" : email,
 			"otp" : otp
 		}
+		otp+="otp";
+		console.log("sent data:");
 		console.log(user);
-		console.log("Verifed-");
-	//
-$.post('otp-verify-url', user).then(function(){
-		window.location="index-1.html/register";
-}, function(){
-	alert("OTP didnn't match, Try again...")
-							}
-);
+		user1 ={
+			"email" : email,
+			"otp" : otp
+		}
+		//console.log("Verifed-");
+//this is the post request for verifying , I'm sending a json user as shown above
+	$.post("http://localhost:3000/posts/",user,function(data,status,xhr){
+		// Here data is what server will send,and user is what user has typed locally(both are json's with email and otp fields)
+		console.log(data);
+		if(user1.email==data.email&&user1.otp==data.otp)
+		{
+			console.log("WELCOME TO ZORO,"+data.email);
+			//Uncomment below line after testing that things are working and above message is displayed in console
+		 //window.location="index-1.html/register";
+	}else
+	 {alert("GET OUT");}
+		console.log(data);//Displaying all data recieved from server
+		//window.location="index-1.html/register";
+	},"json");
 
 	/*	console.log(result);
 		if(result.status=="success")
@@ -71,8 +84,8 @@ $.post('otp-verify-url', user).then(function(){
 		//call the api with email
 		var user_email=$('.email input').val();
 		console.log(user_email);
-//Here call the api with email->
-		$.getJSON("https://jsonplaceholder.typicode.com/todos/1", function(result){
+//Here call the api with email->This is the initial get request with email
+		$.getJSON("https://jsonplaceholder.typicode.com/posts/1", function(result){
 	//Add something like 		if(result.found){do this -> else dont do this} the below code is for when email is not found , if not found add something like window.location="index-1.html/login";
 			console.log("data:");
 			 console.log(JSON.stringify(result));
@@ -80,7 +93,7 @@ $.post('otp-verify-url', user).then(function(){
 			console.log("Send otp now");
 	$("#display-text").text("Please Enter OTP to continue:");
 			var email_user = $('.email input').val();
-			console.log(email_user);
+			//console.log(email_user);
 			 $('.email input').val('');
 				$(".email").removeClass("success");
 				 $(".email-input").attr("placeholder","X1234X");

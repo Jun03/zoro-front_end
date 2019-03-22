@@ -12,7 +12,7 @@
         console.log(vm);
         console.log("uuuuu");
     //  vm.editProfile=editProfile;
-  
+
 
       //  vm.profile = profile;
 
@@ -31,10 +31,11 @@
             readURL(this);
         });
 
-
+        function editProfile(){
           //vm.dataLoading = true;
             UserService.Update(vm.user)
                 .then(function (response) {
+                  console.log(response);
                     if (response.found==false) {
                         FlashService.Success('Profile Updation successful', true);
                         $location.path('/dashboard');
@@ -46,8 +47,8 @@
                     }
                 });
         }
-*/
 
+}
 
 
 

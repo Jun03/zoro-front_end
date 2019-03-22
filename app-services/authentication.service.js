@@ -35,8 +35,8 @@
              Use this for real authentication
              ----------------------------------------------
              *///bro insert your api link here
-            $http.post('/api/authenticate', { username: username, password: password })
-                .success(function (response) {
+            $http.post('http://localhost:3000/posts/', { username: username, password: password })
+                .then(function (response) {
                   console.log("register success");
                     callback(response);
                 });
